@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<nav th:fragment="navbar" class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-center">
+        <a th:href="@{/}" class="uk-navbar-item uk-logo">Shop!!</a>
+        <ul class="uk-navbar-nav">
+            <li class="uk-parent"><a th:href="@{/products}">Produkty</a></li>
+            <li class="uk-parent"><a th:href="@{/basket}">Koszyk</a></li>
+            <li class="uk-parent"><a th:href="@{/shipping}">Dostawa</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+</body>
+</html>

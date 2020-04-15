@@ -22,7 +22,7 @@ public class Product {
     @Column(name = "description")
     String description;
 
-    @Column(name = "price", columnDefinition="DOUBLE(5, 2)")
+    @Column(name = "price", columnDefinition="DOUBLE(7, 3)")
     double price;
 
 

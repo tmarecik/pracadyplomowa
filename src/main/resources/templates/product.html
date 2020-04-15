@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container">
+        <form style="width: 400px; margin: auto" th:object="${product}" th:action="@{/products/save}" method="post"> <!--action informyje gdzie ten formulz zostanie przekazany -->
+            <div class="uk-margin">
+                <label>Nazwa</label>
+                <input th:field="*{name}" type="text" class="uk-input">
+            </div>
+
+            <div class="uk-margin">
+                <label>Cena</label>
+                <input th:field="*{price}" type="number" step="0.01" class="uk-input">
+            </div>
+
+            <div class="uk-margin">
+                <label>Ilość</label>
+                <input th:field="*{quantity}" type="number" class="uk-input">
+            </div>
+
+            <div class="uk-margin">
+                <label>Dostępność</label>
+                <input th:field="*{available}" type="checkbox" class="uk-checkbox">
+            </div>
+            <input th:field="*{id}" type="number" hidden>
+            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+            <input type="submit" class="uk-button uk-button-primary" value="Zapisz">
+        </form>
+
+
+    </div>
+
+</body>
+</html>

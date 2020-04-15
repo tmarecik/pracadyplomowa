@@ -7,13 +7,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import pl.edu.wszib.pracadyplomowa.service.ProductService;
 
 @Controller
-@RequestMapping("/shop")
+//@RequestMapping("/shop")
 public class ProductController {
 
     ProductService productService;
 
     public ProductController(ProductService productService) {
         this.productService = productService;
+    }
+
+    @GetMapping
+    public String wetcome(){
+        return "welcome";
     }
 
     @GetMapping("/products")

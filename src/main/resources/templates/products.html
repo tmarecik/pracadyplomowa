@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<body>
+
+<div class="container">
+    <h2>Produkty</h2>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>Zdjecie</th>
+                <th>Nazwa</th>
+                <th>Opis</th>
+                <th>Cena</th>
+                <th>ID</th>
+              
+            </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="product: ${products}">     <!--product jest zdefiniowany z kontroloerze-->
+            <td><img th:src="@{/product.picture}" /></td>
+
+<!--            todo-->
+<!--            dorobic obsługe ipcturesów-->
+<!--            https://stackoverflow.com/questions/55686594/is-there-a-way-to-display-an-image-from-mysql-database-in-thymeleaf-and-spring-b  -->
+<!--            https://stackoverflow.com/questions/33045743/showing-base64string-image-with-thymeleaf  -->
+
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+<!--    <div>-->
+<!--        <a th:href="@{/products/new}"><input style="background-color: #32d296; color:white" class="uk-button" value="Dodaj Produkt" type="button"></a>-->
+<!--    </div>-->
+
+</div>
+
+</body>
+</html>

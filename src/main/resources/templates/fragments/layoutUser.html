@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:fragment="layoutUser(content)">   <!--    layout bedzie fragmentem na poziomie znacznikia html który przyjmuje "content"-->
+<head>
+    <meta charset="UTF-8">
+    <title>Shop!!</title>
+    <link rel="stylesheet" href="../static/css/uikit.min.css" th:href="@{/css/uikit.min.css}">
+    <script th:src="@{/js/uikit.js}"></script>
+    <script th:src="@{/js/uikit-icons.js}"></script>
+
+</head>
+<body>
+
+    <div th:replace="~{fragments/navbar ::navbar}"></div>
+    <!--    wstrzykneliśmy navbar-->
+
+    <div th:insert="${content}" class="uk-container uk-margin-large-top">
+
+
+    </div>
+
+</body>
+</html>

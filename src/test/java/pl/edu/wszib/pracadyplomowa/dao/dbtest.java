@@ -39,6 +39,7 @@ public class dbtest {
     @Test
     void testFetchProduct() {
         Product productDB = productDao.getById(1L);
+//        Product productDB = productDao.findById(1L);
         assertNotNull(productDB);
         assertEquals(productDB.getId(), productDB.getId());
     }
