@@ -19,22 +19,29 @@ public class Product {
     byte[] picture;
 
     @Lob
+    @Column(name = "icon")
+    byte[] icon;
+
+    @Lob
     @Column(name = "description")
     String description;
 
     @Column(name = "price", columnDefinition="DOUBLE(7, 3)")
     double price;
 
+    @Column(name = "availability")
+    int availability;
 
     public Product() {
     }
 
-    public Product(String name, byte[] picture, String description, double price) {
-//    public Product(String name, String description, double price) {
+    public Product(String name, byte[] picture, byte[] icon, String description, double price, int avaibility) {
         this.name = name;
         this.picture = picture;
+        this.icon = icon;
         this.description = description;
         this.price = price;
+        this.avaibility = avaibility;
     }
 
     public Long getId() {
@@ -53,13 +60,22 @@ public class Product {
         this.name = name;
     }
 
-//    public byte[] getPicture() {
-//        return picture;
-//    }
+    public byte[] getPicture() {
+        return picture;
+    }
 //
-//    public void setPicture(byte[] picture) {
-//        this.picture = picture;
-//    }
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+
+    public byte[] getIcon() {
+        return icon;
+    }
+
+    public void setIcon(byte[] icon) {
+        this.icon = icon;
+    }
 
     public String getDescription() {
         return description;
@@ -75,5 +91,13 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getAvaibility() {
+        return avaibility;
+    }
+
+    public void setAvaibility(int avaibility) {
+        this.avaibility = avaibility;
     }
 }
