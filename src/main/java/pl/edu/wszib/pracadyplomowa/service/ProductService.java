@@ -36,6 +36,12 @@ public class ProductService {
         return productsListDto;
     }
 
+    public Product getById(Long id){
+        Product product = productDao.getById(id);
+        return product;
+    }
+    
+    
     private void fillDB(){
         byte[] picture = new byte[0];
         byte[] icon = new byte[0];

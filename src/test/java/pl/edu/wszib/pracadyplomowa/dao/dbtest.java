@@ -23,7 +23,8 @@ public class dbtest {
     void setUp() throws IOException {
 
         byte[] picture = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
-        Product product = new Product("gitara", picture, "ala m kota", 112 );
+        byte[] icon = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
+        Product product = new Product("gitara", picture, icon, "ala m kota", 112, 1 );
         System.out.println("----============== PRODUCT ===========----------   "+ product);
 
         assertNull(product.getId());

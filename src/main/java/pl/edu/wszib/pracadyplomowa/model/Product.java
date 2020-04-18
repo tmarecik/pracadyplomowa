@@ -35,13 +35,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, byte[] picture, byte[] icon, String description, double price, int avaibility) {
+    public Product(String name, byte[] picture, byte[] icon, String description, double price, int availability) {
         this.name = name;
         this.picture = picture;
         this.icon = icon;
         this.description = description;
         this.price = price;
-        this.avaibility = avaibility;
+        this.availability = availability;
     }
 
     public Long getId() {
@@ -68,7 +68,6 @@ public class Product {
         this.picture = picture;
     }
 
-
     public byte[] getIcon() {
         return icon;
     }
@@ -93,11 +92,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getAvaibility() {
-        return avaibility;
+    public int getAvailability() {
+        return availability;
     }
 
-    public void setAvaibility(int avaibility) {
-        this.avaibility = avaibility;
+    public void setAvailability(int availability) {
+        this.availability = availability;
     }
 }
