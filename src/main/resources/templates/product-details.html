@@ -7,46 +7,53 @@
 <body>
 
     <div class="container">
-        <h2>Gitary Elektryczne</h2>
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th><h2><span th:text="${product.name}"></span></h2></th>
+            </tr>
+            </thead>
 
-        <img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" />
-        <div>
-            <span th:text="${product.name}"></span>
-        </div>
-        <div>
-            <span th:text="${product.price}"></span>
-        </div>
-        <div>
-            <span th:text="${product.availability}"></span>
-        </div>
+            <tbody>
+                <tr>
+                    <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>
+                </tr>
+                <tr>
+                    <td th:text="${product.description}"></td>
+                </tr>
+            </tbody>
 
-<!--        todo dokonczyc-->
+            <tr>
+                <th>Cena</th>
+                <th>Dostępna Ilość</th>
+                <th>Dodaj sztuk</th>
+                <th>Koszyk</th>
+            </tr>
+                <tbody>
+                    <tr>
+                        <td  style="width:250px" th:text="${product.price}"></td>
+                        <td th:text="${product.availability}"></td>
+                        <td>
+                            <form>
+                                <div class="uk-margin" style="width:100px">
+                                    <input th:field="${product.amount}" type="number" th:min=1 th:max="${product.availability}" class="uk-input">
+                                </div>
+                            </form>
+                        </td>
+                        <td style="width:250px">
+                            <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+                        </td>
+<!--                        <td>-->
+<!--                            <input type="submit" class="uk-button uk-button-primary" value="Zapisz">-->
+<!--                        </td>-->
+                    </tr>
+            </tbody>
 
-<!--        th:text="${product.price}"-->
-<!--        th:text="${product.id}"-->
-
-<!--        <table class="uk-table uk-table-striped">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th>Zdjecie</th>-->
-<!--                <th>Nazwa</th>-->
-<!--                                <th>Opis</th>-->
-<!--                <th>Cena</th>-->
-<!--                <th>ID</th>-->
-<!--                                <th>Dostępna Ilość</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!---->
-<!--            <tbody>-->
-<!---->
-<!--                <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>-->
-<!--                <td th:text="${product.name}"></td>-->
-<!--                <td th:text="${product.price}"></td>-->
-<!--                <td th:text="${product.id}"></td>-->
-<!--            </tbody>-->
-<!--                <td style="width:250px">-->
-<!--                    <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
-<!--                </td>-->
 <!--        <form style="width: 400px; margin: auto" th:object="${product}" th:action="@{/products/save}" method="post"> &lt;!&ndash;action informyje gdzie ten formulz zostanie przekazany &ndash;&gt;-->
 <!--            <div class="uk-margin">-->
 <!--                <label>Nazwa</label>-->
@@ -71,9 +78,8 @@
 <!--            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>-->
 <!--            <input type="submit" class="uk-button uk-button-primary" value="Zapisz">-->
 <!--        </form>-->
-
-<!--        </table>-->
+<!---->
+        </table>
     </div>
-
 </body>
 </html>

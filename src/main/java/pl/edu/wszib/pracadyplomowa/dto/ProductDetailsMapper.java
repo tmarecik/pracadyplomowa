@@ -14,14 +14,8 @@ public class ProductDetailsMapper {
         detilsDto.description = product.getDescription();
         detilsDto.price = product.getPrice();
         detilsDto.availability = product.getAvailability();
+        detilsDto.amount = 0;
         return detilsDto;
     }
-
-//    public static Product DtoToDao(ProductDetilsDto detilsDto){
-        /*
-        * todo
-        *  dokonczyc
-        * */
-//    }
 }
 

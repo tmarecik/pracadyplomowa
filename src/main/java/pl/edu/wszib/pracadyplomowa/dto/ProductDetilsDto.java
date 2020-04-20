@@ -9,6 +9,15 @@ public class ProductDetilsDto {
     String description;
     double price;
     int availability;
+    int amount;
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 
     public String getPicture() {
         return picture;

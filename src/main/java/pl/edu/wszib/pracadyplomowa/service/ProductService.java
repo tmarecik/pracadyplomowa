@@ -2,6 +2,8 @@ package pl.edu.wszib.pracadyplomowa.service;
 
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.pracadyplomowa.dao.ProductDao;
+import pl.edu.wszib.pracadyplomowa.dto.ProductDetailsMapper;
+import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
 import pl.edu.wszib.pracadyplomowa.dto.ProductListMemberDto;
 import pl.edu.wszib.pracadyplomowa.dto.ProductListMemeberMapper;
 import pl.edu.wszib.pracadyplomowa.model.Product;
@@ -36,9 +38,11 @@ public class ProductService {
         return productsListDto;
     }
 
-    public Product getById(Long id){
+    public ProductDetilsDto getById(Long id){
         Product product = productDao.getById(id);
-        return product;
+        ProductDetilsDto detailsDto;
+        detailsDto = ProductDetailsMapper.DaoToDto(product);
+        return detailsDto;
     }
     
     
@@ -63,9 +67,4 @@ public class ProductService {
         productDao.save(product1);
         productDao.save(product2);
     }
-    /*
-    * todo
-    *  metodę uzupełniającą DB
-    *  widoki*/
-
 }
