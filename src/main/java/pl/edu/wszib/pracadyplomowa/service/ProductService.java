@@ -12,9 +12,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ProductService {
@@ -42,6 +40,7 @@ public class ProductService {
         Product product = productDao.getById(id);
         ProductDetilsDto detailsDto;
         detailsDto = ProductDetailsMapper.DaoToDto(product);
+//        detailsService.addToDetailsMap(detailsDto);
         return detailsDto;
     }
     
@@ -49,19 +48,17 @@ public class ProductService {
     private void fillDB(){
         byte[] picture = new byte[0];
         byte[] icon = new byte[0];
+        String desc = new String();
         try {
-            picture = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
-            icon = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
+            picture = Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic.jpg"));
+            icon = Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic_icon.jpg"));
+            desc = new String(Files.readAllBytes(Paths.get(".\\src\\\\main\\\\java\\\\samic_description.txt")));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Product product = new Product("Samic", picture, icon, "samick by greg benetti", 124, 1 );
-        Product product1 = new Product("Epiphone_SG100", picture, icon, "epiphone SG100", 890, 1 );
-        Product product2 = new Product("Gibson_Les_Pole", picture, icon, "Gibson Les Pole", 152, 12 );
-
-        /*
-        * todo poprawic definicje kolumn format ceny -> przyjmuje tylo trzcyfrowe wartości
-        *  todo poprawić description -> ma przyjmować LOB'y*/
+        Product product = new Product("Samic", picture, icon, desc, 1240, 1 );
+        Product product1 = new Product("Epiphone_SG100", picture, icon, "epiphone SG100 ", 8900, 1 );
+        Product product2 = new Product("Gibson_Les_Pole", picture, icon, "Gibson Les Pole", 15200, 12 );
 
         productDao.save(product);
         productDao.save(product1);

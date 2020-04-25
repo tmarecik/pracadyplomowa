@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<body>
+
+<div class="container">
+
+            <h2>KOSZYK</h2>
+
+            <table class="uk-table uk-table-striped">
+                <thead>
+                <tr>
+                    <th>Zdjecie</th>
+                    <th>Nazwa</th>
+                    <!--                <th>Opis</th>-->
+                    <th>Cena</th>
+                    <th>ID</th>
+                    <!--                <th>Dostępna Ilość</th>-->
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="product: ${products}">     <!--product jest zdefiniowany z kontroloerze-->
+<!--                    <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>-->
+                    <td th:text="${product.name}"></td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.id}"></td>
+
+<!--                    <td style="width:250px">-->
+<!--                        <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
+<!--                    </td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

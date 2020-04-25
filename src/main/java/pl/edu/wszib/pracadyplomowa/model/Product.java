@@ -26,7 +26,8 @@ public class Product {
     @Column(name = "description")
     String description;
 
-    @Column(name = "price", columnDefinition="DOUBLE(7, 3)")
+//    @Column(name = "price", columnDefinition="DOUBLE(7, 3)")
+    @Column(name = "price", precision=6, scale=2)
     double price;
 
     @Column(name = "availability")
