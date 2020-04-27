@@ -34,14 +34,20 @@
                         <td  style="width:250px" th:text="${product.price}"></td>
                         <td th:text="${product.availability}"></td>
                         <td>
-                            <form>
+<!--                            <form>-->
+<!--                            <form action="#" th:action="@{/details/{id}(id=${product.id})}" method="post" th:object="${product}">-->
+                            <form action="#" th:action="@{/details/update/{id}(id=${product.id})}" method="post" th:object="${product}">
                                 <div class="uk-margin" style="width:100px">
                                     <input th:field="${product.amount}" type="number" th:min="1" th:max="${product.availability}" class="uk-input">
                                 </div>
+                                <td>
+                                    <input type="submit" class="uk-button uk-button-primary" value="Zapisz">
+                                </td>
                             </form>
                         </td>
                         <td style="width:250px">
-                            <a th:href="@{/products/{id}/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
+<!--                            <a th:href="@{/products/{id}/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
+                            <a th:href="@{/basket/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="submit"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
                         </td>
                         <td th:text="${product.id}" hidden></td>
                     </tr>
