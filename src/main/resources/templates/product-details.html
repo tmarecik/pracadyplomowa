@@ -34,35 +34,39 @@
                         <td  style="width:250px" th:text="${product.price}"></td>
                         <td th:text="${product.availability}"></td>
                         <td>
-<!--                            <form>-->
-<!--                            <form action="#" th:action="@{/details/{id}(id=${product.id})}" method="post" th:object="${product}">-->
-                            <form action="#" th:action="@{/details/update/{id}(id=${product.id})}" method="post" th:object="${product}">
+                            <form action="#" th:action="@{/details/update}" method="post" th:object="${product}">
+
+                                <div>
+                                    <input th:field="*{id}" type="text" th:value="${product.id}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{name}" type="text" th:value="${product.name}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{icon}" type="text" th:value="${product.icon}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{price}" type="text" th:value="${product.price}" class="uk-input" hidden>
+                                </div>
+
                                 <div class="uk-margin" style="width:100px">
-                                    <input th:field="${product.amount}" type="number" th:min="1" th:max="${product.availability}" class="uk-input">
+                                    <input th:field="*{amount}" type="number" th:min="1" th:max="${product.availability}" class="uk-input">
                                 </div>
                                 <td>
-                                    <input type="submit" class="uk-button uk-button-primary" value="Zapisz">
+                                    <input type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">
                                 </td>
                             </form>
-                        </td>
-                        <td style="width:250px">
-<!--                            <a th:href="@{/products/{id}/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
-                            <a th:href="@{/basket/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="submit"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
-                        </td>
                         <td th:text="${product.id}" hidden></td>
                     </tr>
                     <tr>
                         <td>
                             <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
                         </td>
-<!--                        <td>-->
-<!--                            <input type="submit" class="uk-button uk-button-primary" value="Zapisz">-->
-<!--                        </td>-->
                     </tr>
             </tbody>
-
-<!--            todo dokonczyc minimalna/defoultowa wartość do pola dodawania sztuk/min=1 -->
-<!--            todo funkcjonalności przycisków-->
 
         </table>
     </div>

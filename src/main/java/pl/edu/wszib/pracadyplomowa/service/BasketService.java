@@ -1,6 +1,7 @@
 package pl.edu.wszib.pracadyplomowa.service;
 
 import org.springframework.stereotype.Service;
+import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
 
 import java.util.Collection;
@@ -10,18 +11,19 @@ import java.util.Map;
 @Service
 public class BasketService {
 
-    Map<Long, ProductDetilsDto> basketMap = new HashMap<>();
+    Map<Long, BasketProduct> basketMap = new HashMap<>();
 
-    public void addToBasket(ProductDetilsDto productDetilsDto) {
-        basketMap.put(productDetilsDto.getId(), productDetilsDto);
+    public void addToBasket(BasketProduct basketProduct) {
+        basketMap.put(basketProduct.getId(), basketProduct);
     }
 
-    public Collection<ProductDetilsDto> getBasketProducts(){
+    public Collection<BasketProduct> getBasketProducts(){
         return basketMap.values();
     }
 
-    public ProductDetilsDto getProductById(Long id) {
+    public BasketProduct getProductById(Long id) {
         return basketMap.get(id);
     }
+
 
 }

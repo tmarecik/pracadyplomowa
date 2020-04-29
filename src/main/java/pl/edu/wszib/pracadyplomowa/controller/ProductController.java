@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
 import pl.edu.wszib.pracadyplomowa.service.BasketService;
 import pl.edu.wszib.pracadyplomowa.service.DetailsService;
@@ -36,59 +37,33 @@ public class ProductController {
         return "products";
     }
 
-//    @GetMapping("/products/{id}")
     @GetMapping("/details/{id}")
-//    @PostMapping("/details/{id}")
     public String getProduct(@PathVariable Long id, Model model){
         ProductDetilsDto product = productService.getById(id);
         detailsService.addToDetails(product);
-//        detailsService.getById(product.getId());
-//        model.addAttribute("product", product);
         model.addAttribute("product", detailsService.getById(product.getId()));
         return "product-details";
     }
 
-    @PostMapping("/details/update/{id}")
-    public String modifyDetails(@PathVariable Long id, Model model){
-        ProductDetilsDto product =  detailsService.getById(id);
-        detailsService.update(product);
-//        return "redirect:/product-detail";
-        model.addAttribute("product", detailsService.getById(product.getId()));
-//        return "redirect:/details/{id}";
-//        return String.format("redirect:/details/%d", product.getId());
-        return String.format("redirect:/basket/%d", product.getId());
+//    todo dodac metody do odpowiedniego servisu
+    @PostMapping("/details/update")
+    public String modifyDetails(ProductDetilsDto product){
+        BasketProduct basketProduct = new BasketProduct();
+        basketProduct.setId(product.getId());
+        basketProduct.setName(product.getName());
+        basketProduct.setIcon(product.getIcon());
+        basketProduct.setPrice(product.getPrice());
+        basketProduct.setAmount(product.getAmount());
+        basketProduct.setTotalPrice();
+        basketService.addToBasket(basketProduct);
+        return "redirect:/basket";
     }
 
-
-// todo to działa
-//    @GetMapping("/products/{id}/{id}")
-//    public String addToBasket(@PathVariable Long id, Model model) {
-//        ProductDetilsDto product = productService.getById(id);
-//        basketService.addToBasket(product);
-//        model.addAttribute("products", basketService.getBasketProducts());
-//        detailsService.clearDetailsMap();
-//        return "basket";
-//    }
-
-//    @GetMapping("/products/{id}/{id}")
     @GetMapping("/basket/{id}")
     public String addToBasket(@PathVariable Long id, Model model) {
-        ProductDetilsDto product = detailsService.getById(id);
-        basketService.addToBasket(product);
         model.addAttribute("products", basketService.getBasketProducts());
-//        detailsService.clearDetailsMap();
         return "basket";
     }
-
-
-//    @PostMapping("/basket")
-//    public String addAmount(@PathVariable Long id, Model model) {
-//        ProductDetilsDto product = detailsService.getById(id);
-//        basketService.addToBasket(product);
-//        model.addAttribute("products", basketService.getBasketProducts());
-//        detailsService.clearDetailsMap();
-//        return "basket";
-//    }
 
     @GetMapping("/basket")
     public String basketProducts(Model model){

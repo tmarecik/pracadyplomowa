@@ -15,25 +15,13 @@ public class DetailsService {
         detailsMap.put(productDetilsDto.getId(), productDetilsDto);
     }
 
-    public void update(ProductDetilsDto activeProduct){
-        ProductDetilsDto product = detailsMap.get(activeProduct.getId());
-        product.setId(activeProduct.getId());
-        product.setName(activeProduct.getName());
-        product.setIcon(activeProduct.getIcon());
-        product.setPicture(activeProduct.getPicture());
-        product.setPrice(activeProduct.getPrice());
-        product.setAvailability(activeProduct.getAvailability());
-        product.setAmount(activeProduct.getAmount());
-//        product.setAmount(2);
-        detailsMap.replace(product.getId(), product);
-    }
-
     public void clearDetailsMap() {
         detailsMap.clear();
     }
 
     public ProductDetilsDto getById(Long id){
-        return detailsMap.get(id);
+        ProductDetilsDto getProduct = detailsMap.get(id);
+        return getProduct;
     }
 
 }

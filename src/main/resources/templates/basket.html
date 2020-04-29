@@ -9,9 +9,9 @@
             <table class="uk-table uk-table-striped">
                 <thead>
                 <tr>
-                    <th>Zdjecie</th>
+                    <th></th>
+                    <th>Id</th>
                     <th>Nazwa</th>
-                    <th>Dostępnosc</th>
                     <th>Cena</th>
                     <th>Ilość Sztuk</th>
                     <th>Cen całkowita</th>
@@ -22,11 +22,11 @@
                 <tbody>
                 <tr th:each="product: ${products}">     <!--product jest zdefiniowany z kontroloerze-->
                     <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>
+                    <td th:text="${product.id}"></td>
                     <td th:text="${product.name}"></td>
-                    <td th:text="${product.availability}"></td>
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.amount}"></td>
-                    <td th:text="${product.amount}*${product.price}"></td>
+                    <td th:text="${product.totalPrice}"></td>
 
 <!--                    <td style="width:250px">-->
 <!--                        <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
