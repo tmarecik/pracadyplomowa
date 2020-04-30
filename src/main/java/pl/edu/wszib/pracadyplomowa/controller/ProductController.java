@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
+import pl.edu.wszib.pracadyplomowa.dto.ProductBasketMapper;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
 import pl.edu.wszib.pracadyplomowa.service.BasketService;
 import pl.edu.wszib.pracadyplomowa.service.DetailsService;
@@ -19,7 +20,9 @@ public class ProductController {
     DetailsService detailsService;
     BasketService basketService;
 
-    public ProductController(ProductService productService, DetailsService detailsService, BasketService basketService) {
+    public ProductController(ProductService productService,
+                             DetailsService detailsService,
+                             BasketService basketService) {
         this.productService = productService;
         this.detailsService = detailsService;
         this.basketService = basketService;
@@ -45,16 +48,9 @@ public class ProductController {
         return "product-details";
     }
 
-//    todo dodac metody do odpowiedniego servisu
     @PostMapping("/details/update")
     public String modifyDetails(ProductDetilsDto product){
-        BasketProduct basketProduct = new BasketProduct();
-        basketProduct.setId(product.getId());
-        basketProduct.setName(product.getName());
-        basketProduct.setIcon(product.getIcon());
-        basketProduct.setPrice(product.getPrice());
-        basketProduct.setAmount(product.getAmount());
-        basketProduct.setTotalPrice();
+        BasketProduct basketProduct = basketService.detailsToBasket(product);
         basketService.addToBasket(basketProduct);
         return "redirect:/basket";
     }
