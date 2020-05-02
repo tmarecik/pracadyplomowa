@@ -14,12 +14,7 @@ public class DetailsService {
 
     public void addToDetails(ProductDetilsDto productDetilsDto) {
         detailsMap.put(productDetilsDto.getId(), productDetilsDto);
-
     }
-
-//    public void addToDetails(Product product) {
-//        detailsMap.put(product.getId(), product);
-//    }
 
     public void clearDetailsMap() {
         detailsMap.clear();
@@ -29,10 +24,4 @@ public class DetailsService {
         ProductDetilsDto getProduct = detailsMap.get(id);
         return getProduct;
     }
-
-//    public Product getById(Long id){
-//        Product getProduct = detailsMap.get(id);
-//        return getProduct;
-//    }
-
 }

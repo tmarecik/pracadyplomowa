@@ -35,7 +35,18 @@ public class ProductController {
         return "welcome";
     }
 
-    @ModelAttribute
+    @GetMapping("shipping")
+    public String shipping(Model model){      //umożliwia przekazywanie danych do nowego szablonu
+        model.addAttribute("shippingMethodName1", "Paczkomat");             //dwefiniuje pola i wartości w szablonie shipping!!!! do których bedziemy sie odwoływać
+        model.addAttribute("shippingMethodName2", "Kurier -przedpłata");
+        model.addAttribute("shippingMethodName3", "Kurier -pobranie");
+        model.addAttribute("shippingMethodPrice1", 10.50);
+        model.addAttribute("shippingMethodPrice2", 15.00);
+        model.addAttribute("shippingMethodPrice3", 20.20);
+        return "shipping";
+    }
+
+//    @ModelAttribute
     @GetMapping("/products")
     public String products(Model model){
         detailsService.clearDetailsMap();
@@ -61,17 +72,13 @@ public class ProductController {
         return "redirect:/basket";
     }
 
-//    @GetMapping("/basket/{id}")
-//    public String addToBasket(@PathVariable Long id, Model model) {
-//        model.addAttribute("products", basketService.getBasketProducts());
-//        return "basket";
-//    }
-
     @GetMapping("/basket")
     public String basketProducts(Model model){
         double basketTotalPrice = basketService.basketTotalPrice();
+        int basketTotalItems = basketService.basketTotalItems();
         model.addAttribute("products", basketService.getBasketProducts());
         model.addAttribute("basketTotalPrice", basketTotalPrice);
+        model.addAttribute("basketTotalItems", basketTotalItems);
         return "basket";
     }
 
@@ -86,7 +93,7 @@ public class ProductController {
         basketService.deleteAll();
         return "redirect:/basket";
     }
-    
+
     @GetMapping("/basket/buy")
     public String buy(){
         basketService.buyAllStuff();
@@ -94,5 +101,15 @@ public class ProductController {
         detailsService.clearDetailsMap();
         return "redirect:/products";
     }
+
+    @GetMapping("/basket/{id}")
+    public String getBasketProduct(@PathVariable Long id, Model model) {
+        BasketProduct basketProduct = basketService.getBasketProductById(id);
+        Product dBproduct = basketService.getProductFromProductMapById(id);
+        model.addAttribute("basketProduct", basketProduct);
+        model.addAttribute("dBproduct", dBproduct);
+        return "basketProduct";
+    }
+
 
 }

@@ -1,34 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
-<!--cały head whodzi z layout!!!-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--    <link rel="stylesheet" href="../static/css/uikit.min.css" th:href="@{css/uikit.min.css}">-->
-<!--    <script th:src="@{js/uikit.js}"></script>-->
-<!--</head>-->
 <body>
-<!--############################################################-->
-<!--ten kawałek codu teraz wchodzi z fragmnets/navbar-->
-<!--    <nav class="uk-navbar-container" uk-navbar>-->
-<!--        <div class="uk-navbar-center">-->
-<!--            <a href="" class="uk-navbar-item uk-logo">Shop</a>-->
-<!--            <ul class="uk-navbar-nav">-->
-<!--               <li class="uk-parent"><a href="">Produkty</a></li>-->
-<!--               <li class="uk-parent"><a href="">Użytkownicy</a></li>-->
-<!--               <li class="uk-parent"><a href="">Dostawa</a></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </nav>-->
-<!--###############################################################-->
-
-    <!--    <div th:insert="~{fragments/navbar ::navbar}"></div>    &lt;!&ndash; ::navbar -> odniesienie do konkretnego fragmentu kodu w fragmnets/navbar&ndash;&gt;-->
-    <!--    <div th:replace="~{fragments/navbar ::navbar}"></div>    &lt;!&ndash; ::navbar -> odniesienie do konkretnego fragmentu kodu w fragmnets/navbar&ndash;&gt;-->
-    <!--insert i replace są zamiennymi metodami-->
-
     <div class="container">
         <h2>Sposoby dostawy</h2>
-<!--        pola z controlera sposoby dostawy!!-->
         <h4 th:text="${shippingMethodName1}"></h4>
         <h4 th:text="|${#numbers.formatDecimal(shippingMethodPrice1, 1, 2)} zł|"></h4>
         <h4 th:text="${shippingMethodName2}"></h4>

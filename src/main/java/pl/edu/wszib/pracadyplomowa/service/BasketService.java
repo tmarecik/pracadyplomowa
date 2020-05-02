@@ -40,6 +40,10 @@ public class BasketService {
         return basketMap.get(id);
     }
 
+    public Product getProductFromProductMapById(Long id){
+        return productMap.get(id);
+    }
+
     public BasketProduct detailsToBasket(ProductDetilsDto product){
        return basketMapper.detailsToBasket(product);
     }
@@ -56,7 +60,15 @@ public class BasketService {
             basketTotalPrice = basketTotalPrice + basketProduct.getValue().getTotalPrice();
         }
         return basketTotalPrice;
+    }
 
+    public int basketTotalItems(){
+        int basketTotalItems = 0;
+        Set<Map.Entry<Long, BasketProduct>> productSet = basketMap.entrySet();
+        for(Map.Entry<Long, BasketProduct> basketProduct: productSet){
+            basketTotalItems = basketTotalItems + basketProduct.getValue().getAmount();
+        }
+        return basketTotalItems;
     }
 
     public void deleteAll() {
