@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-//public interface ProductDao extends JpaRepository<Product, Long> {
-public interface ProductDao extends CrudRepository<Product, Long> {
+public interface ProductDao extends JpaRepository<Product, Long> {
+//public interface ProductDao extends CrudRepository<Product, Long> {
 
     Product getById(Long id);
     List<Product> findAll();

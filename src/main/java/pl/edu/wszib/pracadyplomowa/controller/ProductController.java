@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
-import pl.edu.wszib.pracadyplomowa.dto.ProductBasketMapper;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
+import pl.edu.wszib.pracadyplomowa.model.Product;
 import pl.edu.wszib.pracadyplomowa.service.BasketService;
 import pl.edu.wszib.pracadyplomowa.service.DetailsService;
 import pl.edu.wszib.pracadyplomowa.service.ProductService;
+
 
 @Controller
 //@RequestMapping("/shop")
@@ -51,17 +52,20 @@ public class ProductController {
     }
 
     @PostMapping("/details/update")
-    public String modifyDetails(ProductDetilsDto product){
+    public String fromDetailsAddToBasket(ProductDetilsDto product){
         BasketProduct basketProduct = basketService.detailsToBasket(product);
         basketService.addToBasket(basketProduct);
+        /*addidtion Map<Product> was created it will be use for DB modify after BUY button press*/
+        Product productDao = productService.getProductDaoById(product.getId());
+        basketService.addToProductMap(productDao);
         return "redirect:/basket";
     }
 
-    @GetMapping("/basket/{id}")
-    public String addToBasket(@PathVariable Long id, Model model) {
-        model.addAttribute("products", basketService.getBasketProducts());
-        return "basket";
-    }
+//    @GetMapping("/basket/{id}")
+//    public String addToBasket(@PathVariable Long id, Model model) {
+//        model.addAttribute("products", basketService.getBasketProducts());
+//        return "basket";
+//    }
 
     @GetMapping("/basket")
     public String basketProducts(Model model){
@@ -82,14 +86,13 @@ public class ProductController {
         basketService.deleteAll();
         return "redirect:/basket";
     }
-
-
-//    @PostMapping("/basket/buy")
+    
     @GetMapping("/basket/buy")
     public String buy(){
         basketService.buyAllStuff();
-//        return "redirect:/products";
-        return "redirect:/basket";
+        basketService.deleteAll();
+        detailsService.clearDetailsMap();
+        return "redirect:/products";
     }
 
 }

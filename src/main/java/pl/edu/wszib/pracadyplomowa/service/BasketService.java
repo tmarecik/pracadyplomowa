@@ -18,17 +18,25 @@ public class BasketService {
     Map<Long, BasketProduct> basketMap = new HashMap<>();
     ProductBasketMapper basketMapper = new ProductBasketMapper();
     ProductDao productDao;
+    public Map<Long, Product> productMap = new HashMap<>();
 
+    public BasketService(ProductDao productDao) {
+        this.productDao = productDao;
+    }
 
     public void addToBasket(BasketProduct basketProduct) {
         basketMap.put(basketProduct.getId(), basketProduct);
+    }
+
+    public void addToProductMap(Product product){
+        productMap.put(product.getId(), product);
     }
 
     public Collection<BasketProduct> getBasketProducts(){
         return basketMap.values();
     }
 
-    public BasketProduct getProductById(Long id) {
+    public BasketProduct getBasketProductById(Long id) {
         return basketMap.get(id);
     }
 
@@ -38,6 +46,7 @@ public class BasketService {
 
     public void delete(Long id){
         basketMap.remove(id);
+        productMap.remove(id);
     }
 
     public double basketTotalPrice(){
@@ -52,27 +61,27 @@ public class BasketService {
 
     public void deleteAll() {
         basketMap.clear();
+        productMap.clear();
     }
 
-    public void databaseAvailabilityUpdate(BasketProduct basketProduct){
-        Long id = basketProduct.getId();
-        Product product = productDao.getById(id);
+    public void databaseAvailabilityUpdate(Product product){
+        BasketProduct basketProduct = getBasketProductById(product.getId());
         int dBavaibility = product.getAvailability();
         int boughtItems = basketProduct.getAmount();
-        if (dBavaibility - boughtItems >= 0 ){
-            product.setAvailability(dBavaibility - boughtItems);
+        int updatedAvailability = dBavaibility - boughtItems;
+        if (updatedAvailability >= 0 ){
+            product.setAvailability(updatedAvailability);
+            productDao.save(product);
         } else {
             System.out.println("there is not enought items in shop store");
         }
-        productDao.save(product);
     }
 
     public void buyAllStuff(){
-        Set<Map.Entry<Long, BasketProduct>> productSet = basketMap.entrySet();
-        for(Map.Entry<Long, BasketProduct> basketProduct: productSet){
-            databaseAvailabilityUpdate(basketProduct.getValue());
+        Set<Map.Entry<Long, Product>> productSet = productMap.entrySet();
+        for(Map.Entry<Long, Product> product: productSet){
+            databaseAvailabilityUpdate(product.getValue());
         }
-        deleteAll();
     }
 
 

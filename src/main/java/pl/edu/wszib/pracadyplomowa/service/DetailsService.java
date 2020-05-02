@@ -11,7 +11,6 @@ import java.util.Map;
 public class DetailsService {
 
     Map<Long, ProductDetilsDto> detailsMap = new HashMap<>();
-    Map<Long, Product> productMap = new HashMap<>();
 
     public void addToDetails(ProductDetilsDto productDetilsDto) {
         detailsMap.put(productDetilsDto.getId(), productDetilsDto);
