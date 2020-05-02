@@ -6,8 +6,18 @@ public class ProductListMemberDto {
     String name;
     String icon;
     double price;
+    int availability;
+
 
     public ProductListMemberDto() {
+    }
+
+    public int getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(int availability) {
+        this.availability = availability;
     }
 
     public Long getId() {

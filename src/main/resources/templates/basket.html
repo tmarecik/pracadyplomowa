@@ -15,25 +15,57 @@
                     <th>Cena</th>
                     <th>Ilość Sztuk</th>
                     <th>Cen całkowita</th>
-                    <!--                <th>Dostępna Ilość</th>-->
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr th:each="product: ${products}">     <!--product jest zdefiniowany z kontroloerze-->
+                <tr th:each="product: ${products}">
                     <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>
                     <td th:text="${product.id}"></td>
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.amount}"></td>
                     <td th:text="${product.totalPrice}"></td>
-
-<!--                    <td style="width:250px">-->
-<!--                        <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
-<!--                    </td>-->
+                    <td style="width:250px">
+                          <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-success" value="Zmień" type="button"></inut></a>
+                          <a th:href="@{/basket/delete/{id}(id=${product.id})}"><input class="uk-button uk-label-danger" value="Usuń" type="button"></inut></a>
+                     </td>
         </tr>
         </tbody>
     </table>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>Basket Total Price</th>
+                <th></th>
+<!--            <th th:text="${basketTotalPrice}"></th>-->
+<!--            <th>-->
+<!--                <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-success" value="KUP" type="button"></inut></a>-->
+<!--            </th>-->
+<!--             <th>-->
+<!--                <a th:href="@{/basket/delete/{id}(id=${product.id})}"><input class="uk-button uk-label-danger" value="ANULUJ" type="button"></inut></a>-->
+<!--             </th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${basketTotalPrice}"></td>
+                <td>
+                    <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-danger" value="Wyczyść koszyk" type="button"></inut></a>
+                </td>
+                <td>
+                    <a th:href="@{/basket/buy}"><input class="uk-button uk-label-success" value="Kup" type="button"></inut></a>
+                </td>
+            </tr>
+
+        </tbody>
+
+
+
+    </table>
+
+
 </div>
 
 </body>

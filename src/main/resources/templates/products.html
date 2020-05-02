@@ -11,10 +11,9 @@
                 <tr>
                     <th>Zdjecie</th>
                     <th>Nazwa</th>
-                    <!--                <th>Opis</th>-->
                     <th>Cena</th>
                     <th>ID</th>
-                    <!--                <th>Dostępna Ilość</th>-->
+                    <th>Dostępna Ilość</th>
                 </tr>
                 </thead>
 
@@ -24,9 +23,9 @@
                     <td th:text="${product.name}"></td>
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.id}"></td>
+                    <td th:text="${product.availability}"></td>
 
                     <td style="width:250px">
-<!--                        <a th:href="@{/products/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>-->
                         <a th:href="@{/details/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
                     </td>
         </tr>

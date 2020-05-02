@@ -2,10 +2,7 @@ package pl.edu.wszib.pracadyplomowa.service;
 
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.pracadyplomowa.dao.ProductDao;
-import pl.edu.wszib.pracadyplomowa.dto.ProductDetailsMapper;
-import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
-import pl.edu.wszib.pracadyplomowa.dto.ProductListMemberDto;
-import pl.edu.wszib.pracadyplomowa.dto.ProductListMemeberMapper;
+import pl.edu.wszib.pracadyplomowa.dto.*;
 import pl.edu.wszib.pracadyplomowa.model.Product;
 
 import java.io.IOException;
@@ -18,12 +15,9 @@ import java.util.List;
 public class ProductService {
 
     ProductDao productDao;
-//    Map<Long, Product> productMap;
-
 
     public ProductService(ProductDao productDao) {
         this.productDao = productDao;
-//        this.productMap = new HashMap<>();
         fillDB();
     }
 
@@ -40,11 +34,9 @@ public class ProductService {
         Product product = productDao.getById(id);
         ProductDetilsDto detailsDto;
         detailsDto = ProductDetailsMapper.DaoToDto(product);
-//        detailsService.addToDetailsMap(detailsDto);
         return detailsDto;
     }
-    
-    
+
     private void fillDB(){
         byte[] picture = new byte[0];
         byte[] icon = new byte[0];

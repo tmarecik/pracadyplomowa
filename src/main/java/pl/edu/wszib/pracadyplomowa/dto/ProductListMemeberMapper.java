@@ -11,6 +11,7 @@ public class ProductListMemeberMapper {
         listMember.name = product.getName();
         listMember.icon = bytesToBase64.byteToBase64(product.getIcon());
         listMember.price = product.getPrice();
+        listMember.availability = product.getAvailability();
         return listMember;
     }
 

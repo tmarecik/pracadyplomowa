@@ -3,6 +3,7 @@ package pl.edu.wszib.pracadyplomowa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
@@ -33,6 +34,7 @@ public class ProductController {
         return "welcome";
     }
 
+    @ModelAttribute
     @GetMapping("/products")
     public String products(Model model){
         detailsService.clearDetailsMap();
@@ -63,7 +65,31 @@ public class ProductController {
 
     @GetMapping("/basket")
     public String basketProducts(Model model){
+        double basketTotalPrice = basketService.basketTotalPrice();
         model.addAttribute("products", basketService.getBasketProducts());
+        model.addAttribute("basketTotalPrice", basketTotalPrice);
         return "basket";
     }
+
+    @GetMapping("/basket/delete/{id}")
+    public String deleteFromBasket(@PathVariable Long id){
+        basketService.delete(id);
+        return "redirect:/basket";
+    }
+
+    @GetMapping("/basket/deleteAll")
+    public String deleteAllFromBasket(){
+        basketService.deleteAll();
+        return "redirect:/basket";
+    }
+
+
+//    @PostMapping("/basket/buy")
+    @GetMapping("/basket/buy")
+    public String buy(){
+        basketService.buyAllStuff();
+//        return "redirect:/products";
+        return "redirect:/basket";
+    }
+
 }
