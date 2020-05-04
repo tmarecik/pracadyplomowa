@@ -49,7 +49,9 @@ public class ProductService {
         try {
             picture = Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic.jpg"));
             icon = Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic_icon.jpg"));
-            desc = new String(Files.readAllBytes(Paths.get(".\\src\\\\main\\\\java\\\\samic_description.txt")));
+            desc = new String(Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic_description.txt")));
+//            desc = new String(Files.readAllBytes(Paths.get(".\\src\\main\\java\\samic_Pełny_opis.htm")));
+
         } catch (IOException e) {
             e.printStackTrace();
         }

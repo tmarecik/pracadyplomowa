@@ -7,31 +7,26 @@
 <body>
 
     <div class="container">
+        <h2><span th:text="${product.name}"></span></h2>
+        <div class="uk-panel">
+            <img class="uk-align-left uk-margin-remove-adjacent uk-width-2-5@l" th:src="@{'data:image/png;base64,'+ ${product.picture}}" alt="under construction"/>
+            <p><span th:text="${product.description}" class="uk-text-meta"></span></p>
+        </div>
+
         <table class="uk-table uk-table-striped">
+<!--        <table class="uk-table uk-table-hover">-->
             <thead>
-            <tr>
-                <th><h2><span th:text="${product.name}"></span></h2></th>
-            </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td><img th:src="@{'data:image/png;base64,'+ ${product.picture}}" alt="under construction" /></td>
-                </tr>
-                <tr>
-                    <td style="width:800px" th:text="${product.description}"></td>
-                </tr>
-            </tbody>
-
-            <tr>
+            <tr class="uk-text-bold">
                 <th>Cena</th>
                 <th>Dostępna Ilość</th>
                 <th>Dodaj sztuk</th>
                 <th>Koszyk</th>
             </tr>
+            </thead>
                 <tbody>
                     <tr>
-                        <td  style="width:250px" th:text="${product.price}"></td>
+                        <td  style="width:250px" th:text="|${#numbers.formatDecimal(product.price, 1 ,2)} zł|"></td>
+
                         <td th:text="${product.availability}"></td>
                         <td>
                             <form action="#" th:action="@{/details/update}" method="post" th:object="${product}">
@@ -56,7 +51,14 @@
                                     <input th:field="*{amount}" type="number" th:min="1" th:max="${product.availability}" class="uk-input">
                                 </div>
                                 <td>
-                                    <input type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">
+                                    <div th:if="${product.availability}>0">
+                                        <input  type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">
+                                    </div>
+                                    <div th:unless="${product.availability}">
+                                        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                                        <p> Produkt chwilowo niedostępny </p>
+                                        </div>
+                                    </div>
                                 </td>
                             </form>
                         <td th:text="${product.id}" hidden></td>
