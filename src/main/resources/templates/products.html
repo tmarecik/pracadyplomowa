@@ -9,10 +9,9 @@
             <table class="uk-table uk-table-striped">
                 <thead>
                 <tr>
-                    <th>Zdjecie</th>
+                    <th></th>
                     <th>Nazwa</th>
                     <th>Cena</th>
-<!--                    <th>ID</th>-->
 <!--                    todo dostępna ilość wycentrowne w kolumnie-->
                     <th>Dostępna Ilość</th>
                 </tr>
@@ -22,14 +21,12 @@
                 <tr th:each="product: ${products}">
                     <td><img th:src="@{'data:image/png;base64,'+ ${product.icon}}" alt="under construction" /></td>
                     <td th:text="${product.name}"></td>
-<!--                    todo cena w PLN-->
-                    <td th:text="${product.price}"></td>
+                    <td th:text="|${#numbers.formatDecimal(product.price, 1 ,2)} zł|"></td>
                     <td th:text="${product.id}" hidden></td>
-                    <td th:text="${product.availability}"></td>
+                    <td th:text="${product.availability}" ></td>
 
                     <td style="width:250px">
-<!--                        todo przycisk labelka: zobacz szczegóły, usunąć ikone koszyka, kolor przycisku niebieski-->
-                        <a th:href="@{/details/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Add Into Basket" type="button"></inut><span uk-icon="icon: cart; ratio: 2"></span></a>
+                        <a th:href="@{/details/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Zobacz szczegóły" type="button"></a>
                     </td>
         </tr>
         </tbody>

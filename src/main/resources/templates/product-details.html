@@ -14,7 +14,6 @@
         </div>
 
         <table class="uk-table uk-table-striped">
-<!--        <table class="uk-table uk-table-hover">-->
             <thead>
             <tr class="uk-text-bold">
                 <th>Cena</th>
@@ -25,11 +24,11 @@
             </thead>
                 <tbody>
                     <tr>
-                        <td  style="width:250px" th:text="|${#numbers.formatDecimal(product.price, 1 ,2)} zł|"></td>
+                        <td   style="width:250px" th:text="|${#numbers.formatDecimal(product.price, 1 ,2)} zł|"></td>
 
-                        <td th:text="${product.availability}"></td>
+                        <td style="width:250px" th:text="${product.availability}"></td>
                         <td>
-                            <form action="#" th:action="@{/details/update}" method="post" th:object="${product}">
+                            <form style="width:200px" action="#" th:action="@{/details/update}" method="post" th:object="${product}">
 
                                 <div>
                                     <input th:field="*{id}" type="text" th:value="${product.id}" class="uk-input" hidden>
