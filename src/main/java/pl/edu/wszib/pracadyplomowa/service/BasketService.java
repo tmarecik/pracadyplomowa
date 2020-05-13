@@ -15,10 +15,13 @@ import java.util.Set;
 @Service
 public class BasketService {
 
-    Map<Long, BasketProduct> basketMap = new HashMap<>();
+    public Map<Long, BasketProduct> basketMap = new HashMap<>();
     ProductBasketMapper basketMapper = new ProductBasketMapper();
     ProductDao productDao;
     public Map<Long, Product> productMap = new HashMap<>();
+
+//    public BasketService() {
+//    }
 
     public BasketService(ProductDao productDao) {
         this.productDao = productDao;

@@ -11,6 +11,21 @@ public class ProductDetilsDto {
     int availability;
     int amount;
 
+
+    public ProductDetilsDto() {
+    }
+
+    public ProductDetilsDto(Long id, String name, String icon, String picture, String description, double price, int availability, int amount) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+        this.picture = picture;
+        this.description = description;
+        this.price = price;
+        this.availability = availability;
+        this.amount = amount;
+    }
+
     public int getAmount() {
         return amount;
     }
@@ -41,9 +56,6 @@ public class ProductDetilsDto {
 
     public void setAvailability(int availability) {
         this.availability = availability;
-    }
-
-    public ProductDetilsDto() {
     }
 
     public Long getId() {

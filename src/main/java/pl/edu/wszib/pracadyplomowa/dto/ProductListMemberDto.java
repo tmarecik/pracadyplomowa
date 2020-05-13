@@ -12,6 +12,15 @@ public class ProductListMemberDto {
     public ProductListMemberDto() {
     }
 
+/*konstruktor dodany na potrzeby7 testowania*/
+    public ProductListMemberDto(Long id, String name, String icon, double price, int availability) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+        this.price = price;
+        this.availability = availability;
+    }
+
     public int getAvailability() {
         return availability;
     }

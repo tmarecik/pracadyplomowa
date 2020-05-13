@@ -46,7 +46,6 @@ public class ProductController {
         return "shipping";
     }
 
-//    @ModelAttribute
     @GetMapping("/products")
     public String products(Model model){
         detailsService.clearDetailsMap();

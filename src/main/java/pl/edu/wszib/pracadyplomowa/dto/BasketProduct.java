@@ -12,6 +12,15 @@ public class BasketProduct {
     public BasketProduct() {
     }
 
+    public BasketProduct(Long id, String name, String icon, double price, int amount, double totalPrice) {
+        this.id = id;
+        this.name = name;
+        this.icon = icon;
+        this.price = price;
+        this.amount = amount;
+        this.totalPrice = totalPrice;
+    }
+
     public double getTotalPrice() {
         return totalPrice;
     }
