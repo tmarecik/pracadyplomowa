@@ -44,6 +44,16 @@ public class Product {
         this.availability = availability;
     }
 
+    public Product( Long id,String name, byte[] picture, byte[] icon, String description, double price, int availability) {
+        this.id = id;
+        this.name = name;
+        this.picture = picture;
+        this.icon = icon;
+        this.description = description;
+        this.price = price;
+        this.availability = availability;
+    }
+
     public Long getId() {
         return id;
     }

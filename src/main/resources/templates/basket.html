@@ -35,6 +35,26 @@
         </tbody>
     </table>
 
+
+<!--    <form action="#" th:action="@{/basket}" th:object="${radioButtonSelectedValue}" method="post">-->
+<!--        <div>-->
+<!--            <h3><span>Dostawa</span></h3>-->
+<!--            <ul>-->
+<!--                    <li th:each="radioValue: ${singleSelectAllValues}">-->
+<!--                        <input type="radio"-->
+<!--                               th:field="*{radioButtonSelectedValue}"-->
+<!--                               th:value="${radioValue.getValue()}" />-->
+<!--                        <label-->
+<!--                                th:for="${#ids.prev('radioButtonSelectedValue')}"-->
+<!--                                th:text="${radioValue.getKey()}"></label>-->
+<!--                    </li>-->
+<!--            </ul>-->
+
+<!--            <p><input type="submit" value="Submit" /></p>-->
+
+<!--        </div>-->
+<!--    </form>-->
+
     <table class="uk-table uk-table-striped">
         <thead>
             <tr>
@@ -45,7 +65,7 @@
         </thead>
         <tbody>
             <tr>
-                <td th:text="${basketTotalPrice}"></td>
+                <td th:text="${basketTotalPrice} + ${shipping}"></td>
                 <td th:text="${basketTotalItems}"></td>
                 <td>
                     <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-danger" value="Wyczyść koszyk" type="button"></inut></a>
@@ -54,14 +74,8 @@
                     <a th:href="@{/basket/buy}"><input class="uk-button uk-label-success" value="Kup" type="button"></inut></a>
                 </td>
             </tr>
-
         </tbody>
-
-
-
     </table>
-
-
 </div>
 
 </body>

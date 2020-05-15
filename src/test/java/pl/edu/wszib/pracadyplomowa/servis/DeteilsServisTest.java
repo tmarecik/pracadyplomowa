@@ -1,4 +1,4 @@
-package pl.edu.wszib.pracadyplomowa.servis.detailServis;
+package pl.edu.wszib.pracadyplomowa.servis;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +18,9 @@ import static org.mockito.Mockito.verify;
 
 //@SpringBootTest
 //@RunWith(MockitoJUnitRunner.class)
-public class deteilsServisTest {
+public class DeteilsServisTest {
 
-    DetailsService detailsService;
+    private DetailsService detailsService;
 
 //    @BeforeEach
 //    void Setup(){
