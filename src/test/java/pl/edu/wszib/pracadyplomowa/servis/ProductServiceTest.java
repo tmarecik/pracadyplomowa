@@ -1,21 +1,9 @@
 package pl.edu.wszib.pracadyplomowa.servis;
 
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
-import org.mockito.Spy;
-import org.mockito.junit.MockitoJUnitRunner;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.Answer;
 import pl.edu.wszib.pracadyplomowa.dao.ProductDao;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
 import pl.edu.wszib.pracadyplomowa.dto.ProductListMemberDto;

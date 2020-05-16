@@ -65,7 +65,8 @@
         </thead>
         <tbody>
             <tr>
-                <td th:text="${basketTotalPrice} + ${shipping}"></td>
+<!--                <td th:text="${basketTotalPrice} + ${shipping}"></td>-->
+                <td th:text="${basketTotalPrice}"></td>
                 <td th:text="${basketTotalItems}"></td>
                 <td>
                     <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-danger" value="Wyczyść koszyk" type="button"></inut></a>

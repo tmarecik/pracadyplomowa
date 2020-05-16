@@ -20,8 +20,6 @@ public class BasketService {
     ProductDao productDao;
     public Map<Long, Product> productMap = new HashMap<>();
 
-//    public BasketService() {
-//    }
 
     public BasketService(ProductDao productDao) {
         this.productDao = productDao;
