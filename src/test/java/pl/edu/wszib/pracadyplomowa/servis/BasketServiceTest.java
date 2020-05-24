@@ -34,15 +34,9 @@ public class BasketServiceTest {
     static private ProductDetilsDto pdd1 = new ProductDetilsDto(1L, "name",  "icon", "picture", "description", 100.00, 2, 2);
 
     private ProductDao productDao = Mockito.mock(ProductDao.class);
-//
-    private BasketService basketService = new BasketService(productDao);
-    private boolean True;
-//
-//    @Mock
-//    ProductDao productDao;
 
-//    @InjectMocks
-//    BasketService basketService;
+    private BasketService basketService = new BasketService(productDao);
+
 
     @AfterEach
     void tearDown() {

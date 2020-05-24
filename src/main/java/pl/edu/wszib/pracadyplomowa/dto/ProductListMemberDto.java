@@ -12,7 +12,7 @@ public class ProductListMemberDto {
     public ProductListMemberDto() {
     }
 
-/*konstruktor dodany na potrzeby7 testowania*/
+/*konstruktor dodany na potrzeby testowania*/
     public ProductListMemberDto(Long id, String name, String icon, double price, int availability) {
         this.id = id;
         this.name = name;
