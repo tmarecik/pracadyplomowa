@@ -65,7 +65,7 @@ public class ProductController {
     public String fromDetailsAddToBasket(ProductDetilsDto product){
         BasketProduct basketProduct = basketService.detailsToBasket(product);
         basketService.addToBasket(basketProduct);
-        /*addidtion Map<Product> was created it will be use for DB modify after BUY button press*/
+        /*additional Map<Product> was created it will be use for DB modify after BUY button press*/
         Product productDao = productService.getProductDaoById(product.getId());
         basketService.addToProductMap(productDao);
         return "redirect:/basket";

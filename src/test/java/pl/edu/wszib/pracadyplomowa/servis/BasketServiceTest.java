@@ -94,7 +94,7 @@ public class BasketServiceTest {
     }
 
     @Test
-    public void deleteTest(){
+    public void deleteByIdTest(){
         Long id = 1L;
 
         assertThat(basketService.basketMap).hasSize(0);
