@@ -10,11 +10,12 @@
                 <thead>
                 <tr>
                     <th></th>
-<!--                    <th>Id</th>-->
                     <th>Nazwa</th>
                     <th>Cena</th>
                     <th>Zarezerwowana Ilość [Sztuk]</th>
                     <th>Cena całkowita</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
 
@@ -26,10 +27,11 @@
                     <td th:text="${product.price}"></td>
                     <td th:text="${product.amount}"></td>
                     <td th:text="${product.totalPrice}"></td>
-                    <td style="width:250px">
-                          <a th:href="@{/basket/{id}(id=${product.id})}"><input class="uk-button uk-label-success" value="Zmień" type="button"></inut></a>
-                          <a th:href="@{/basket/delete/{id}(id=${product.id})}"><input class="uk-button uk-label-danger" value="Usuń" type="button"></inut></a>
-<!--                          <a th:href="@{/basket/delete/{id}(id=${product.id})}"><input class="uk-button uk-label-danger" value="Wyświetl szczegóły" type="button"></inut></a>-->
+                    <td style="width:100px">
+                          <a th:href="@{/basket/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Zmień" type="button"></inut></a>
+                    </td>
+                    <td style="width:100px">
+                        <a th:href="@{/basket/delete/{id}(id=${product.id})}"><input class="uk-button uk-label-warning" value="Usuń" type="button"></inut></a>
                      </td>
         </tr>
         </tbody>
@@ -55,11 +57,12 @@
 <!--        </div>-->
 <!--    </form>-->
 
-    <table class="uk-table uk-table-striped">
+    <table class="uk-table uk-table-striped uk-width-1-1@l">
         <thead>
             <tr>
                 <th>Wartość koszyka</th>
                 <th>Sumaryczna ilość produktów</th>
+                <th></th>
                 <th></th>
             </tr>
         </thead>
@@ -69,10 +72,10 @@
                 <td th:text="${basketTotalPrice}"></td>
                 <td th:text="${basketTotalItems}"></td>
                 <td>
-                    <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-danger" value="Wyczyść koszyk" type="button"></inut></a>
+                    <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-warning" value="Wyczyść koszyk" type="button"></inut></a>
                 </td>
                 <td>
-                    <a th:href="@{/basket/buy}"><input class="uk-button uk-label-success" value="Kup" type="button"></inut></a>
+                    <a th:href="@{/basket/buy}"><input class="uk-button uk-width-1-1 uk-label-danger" value="Kup" type="button"></inut></a>
                 </td>
             </tr>
         </tbody>

@@ -51,7 +51,8 @@
                                 </div>
                                 <td>
                                     <div th:if="${product.availability}>0">
-                                        <input  type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">
+<!--                                        <input  type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">-->
+                                        <input  type="submit" class="uk-button uk-label-warning" value="Dodaj do koszyka">
                                     </div>
                                     <div th:unless="${product.availability}">
                                         <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
@@ -64,7 +65,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+<!--                            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Powrót"></a>-->
+                            <a th:href="@{/products}"><input class="uk-button uk-button-primary" type="button" value="Powrót"></a>
                         </td>
                     </tr>
             </tbody>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>products in basket details modifier</title>
+</head>
+<body>
+
+    <div class="container">
+        <table class="uk-table uk-table-striped">
+            <thead>
+            <tr>
+                <th><h2><span th:text="${basketProduct.name}"></span></h2></th>
+            </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+<!--                    <td><img th:src="@{'data:image/png;base64,'+ ${basketProduct.picture}}" alt="under construction" /></td>-->
+                </tr>
+                <tr>
+<!--                    <td style="width:800px" th:text="${basketProduct.description}"></td>-->
+                </tr>
+            </tbody>
+
+            <tr>
+                <th>Cena</th>
+                <th>Dostępna Ilość</th>
+                <th>Dodaj sztuk</th>
+                <th>Koszyk</th>
+            </tr>
+                <tbody>
+                    <tr>
+                        <td  style="width:250px" th:text="${basketProduct.price}"></td>
+                        <td th:text="${dBproduct.availability}"></td>
+                        <td>
+                            <form action="#" th:action="@{/details/update}" method="post" th:object="${basketProduct}">
+
+                                <div>
+                                    <input th:field="*{id}" type="text" th:value="${basketProduct.id}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{name}" type="text" th:value="${basketProduct.name}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{icon}" type="text" th:value="${basketProduct.icon}" class="uk-input" hidden>
+                                </div>
+
+                                <div>
+                                    <input th:field="*{price}" type="text" th:value="${basketProduct.price}" class="uk-input" hidden>
+                                </div>
+
+                                <div class="uk-margin" style="width:100px">
+                                    <input th:field="*{amount}" type="number" th:min="1" th:max="${dBproduct.availability}" class="uk-input">
+                                </div>
+                                <td>
+                                    <input type="submit" class="uk-button uk-button-danger" value="Zmień">
+                                </td>
+                            </form>
+                        <td th:text="${basketProduct.id}" hidden></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a th:href="@{/basket}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+                        </td>
+                    </tr>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

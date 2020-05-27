@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../static/css/uikit.min.css" th:href="@{css/uikit.min.css}">
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<!--todo przemyśleć czy to welcome jest wogóle potrzene-->
-    <div class="uk-card-default uk-card uk-card-body" style="width: 400px; margin: 300px auto">
-        <h2 class="uk-text-center uk-card-title">Taste of BLUES music store</h2>
-        <h2 class="uk-text-center uk-card-title" th:text="#{welcome}">Witaj w sklepie</h2>
-        <a th:href="@{products}" class="uk-button uk-button-secondary uk-width-1-1" th:text="#{enter}">Wejdż</a>
-    </div>
+
+        <div class="uk-background-cover uk-height-viewport uk-panel uk-flex uk-flex-center uk-flex-middle" style="background-image: url(img/background_guitar.jpg);">
+            <div class="uk-card uk-card-body" style="width: max-content; height: max-content; margin: 100px auto">
+                <h2 class="logo uk-text-center uk-card-title">Taste of BLUES music store</h2>
+                <h2 class="logo uk-text-center uk-card-title" th:text="#{welcome}">Witaj w sklepie</h2>
+                <a th:href="@{products}" class="uk-button uk-button-secondary uk-width-1-1" th:text="#{enter}">Wejdż</a>
+            </div>
+        </div>
 
 </body>
 </html>
