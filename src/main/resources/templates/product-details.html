@@ -10,7 +10,7 @@
         <h2><span th:text="${product.name}"></span></h2>
         <div class="uk-panel">
             <img class="uk-align-left uk-margin-remove-adjacent uk-width-2-5@l" th:src="@{'data:image/png;base64,'+ ${product.picture}}" alt="under construction"/>
-            <p><span th:text="${product.description}" class="uk-text-meta"></span></p>
+            <p><span th:utext="${product.description}" class="uk-text-meta"></span></p>
         </div>
 
         <table class="uk-table uk-table-striped">
@@ -51,7 +51,6 @@
                                 </div>
                                 <td>
                                     <div th:if="${product.availability}>0">
-<!--                                        <input  type="submit" class="uk-button uk-button-primary" value="Dodaj do koszyka">-->
                                         <input  type="submit" class="uk-button uk-label-warning" value="Dodaj do koszyka">
                                     </div>
                                     <div th:unless="${product.availability}">
@@ -65,7 +64,6 @@
                     </tr>
                     <tr>
                         <td>
-<!--                            <a th:href="@{/products}"><input class="uk-button uk-button-danger" type="button" value="Powrót"></a>-->
                             <a th:href="@{/products}"><input class="uk-button uk-button-primary" type="button" value="Powrót"></a>
                         </td>
                     </tr>

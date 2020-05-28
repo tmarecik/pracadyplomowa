@@ -2,7 +2,6 @@ package pl.edu.wszib.pracadyplomowa.service;
 
 import org.springframework.stereotype.Service;
 import pl.edu.wszib.pracadyplomowa.dto.ProductDetilsDto;
-import pl.edu.wszib.pracadyplomowa.model.Product;
 
 import java.util.HashMap;
 import java.util.Map;

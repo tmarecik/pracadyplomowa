@@ -9,18 +9,12 @@
 <nav th:fragment="navbar" class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-center">
 
-<!--        todo zamienic na home/strona domowa, ikone domku, logo link etc-->
-        <a th:href="@{/}" class="uk-navbar-item uk-logo">Shop!!</a>
+
+        <a style="width:200px" th:href="@{/}" class="uk-navbar-item uk-logo" uk-icon="icon: home"></a>
         <ul class="uk-navbar-nav">
+            <li style="width:200px" class="uk-parent"><a th:href="@{/products}">Oferta</a></li>
+            <li style="width:200px" class="uk-parent"><a th:href="@{/basket}">Koszyk</a></li>
 
-<!--            todo labelka prodyukty zamienić na oferta-->
-            <li class="uk-parent"><a th:href="@{/products}">Produkty</a></li>
-
-<!--            todo koszyk dodadać badg'a wyswietlającego ilość produktów w poszyku-->
-            <li class="uk-parent"><a th:href="@{/basket}">Koszyk</a></li>
-
-<!--            todo przemeśleć zakładkę dostawa, czy wogóle potrzebna-->
-            <li class="uk-parent"><a th:href="@{/shipping}">Dostawa</a></li>
         </ul>
     </div>
 </nav>

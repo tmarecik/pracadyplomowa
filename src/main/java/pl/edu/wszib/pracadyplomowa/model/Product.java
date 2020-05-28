@@ -11,7 +11,7 @@ public class Product {
     @Column(name = "id")
     Long id;
 
-    @Column(name = "name", columnDefinition="VARCHAR(128)")
+    @Column(name = "name", columnDefinition="VARCHAR(128)", nullable = false)
     String name;
 
     @Lob
@@ -26,10 +26,10 @@ public class Product {
     @Column(name = "description")
     String description;
 
-    @Column(name = "price", precision=6, scale=2)
+    @Column(name = "price", precision=6, scale=2, nullable = false)
     double price;
 
-    @Column(name = "availability")
+    @Column(name = "availability", nullable = false)
     int availability;
 
     public Product() {

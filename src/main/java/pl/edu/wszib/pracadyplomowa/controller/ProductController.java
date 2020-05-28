@@ -3,7 +3,6 @@ package pl.edu.wszib.pracadyplomowa.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.edu.wszib.pracadyplomowa.dto.BasketProduct;
@@ -15,7 +14,6 @@ import pl.edu.wszib.pracadyplomowa.service.ProductService;
 
 
 @Controller
-//@RequestMapping("/shop")
 public class ProductController {
 
     ProductService productService;

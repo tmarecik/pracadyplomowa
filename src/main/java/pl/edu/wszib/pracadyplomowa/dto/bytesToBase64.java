@@ -1,6 +1,5 @@
 package pl.edu.wszib.pracadyplomowa.dto;
 
-import org.apache.commons.io.FileUtils;
 
 import java.util.Base64;
 
