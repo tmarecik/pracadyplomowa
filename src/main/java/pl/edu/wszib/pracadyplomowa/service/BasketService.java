@@ -26,11 +26,20 @@ public class BasketService {
     }
 
     public void addToBasket(BasketProduct basketProduct) {
-        basketMap.put(basketProduct.getId(), basketProduct);
+        if (basketProduct != null){
+            basketMap.put(basketProduct.getId(), basketProduct);}
+        else {
+            throw new NullPointerException();
+        }
     }
 
     public void addToProductMap(Product product){
-        productMap.put(product.getId(), product);
+        if (product != null) {
+            productMap.put(product.getId(), product);
+        }
+        else {
+            throw new NullPointerException();
+        }
     }
 
     public Collection<BasketProduct> getBasketProducts(){

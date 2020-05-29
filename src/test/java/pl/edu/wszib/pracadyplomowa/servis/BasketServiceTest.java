@@ -44,17 +44,32 @@ public class BasketServiceTest {
     }
 
     @Test
-    public void addToBasketTest(){
+    public void  shouldNotRiseNullPointerException_whenTryToAddBasketProduct_addToBasketTest(){
         assertThat(basketService.basketMap).hasSize(0);
-        basketService.addToBasket(bp1);
+        Assertions.assertThatCode(() -> basketService.addToBasket(bp1))
+                .doesNotThrowAnyException();
         assertThat(basketService.basketMap).hasSize(1);
     }
 
+    @Test(expected = NullPointerException.class)
+    public void  shouldRiseNullPointerException_whenBasketProductEqNULLTryToAdd_addToBasketTest(){
+        assertThat(basketService.basketMap).hasSize(0);
+        basketService.addToBasket(null);
+    }
+
     @Test
-    public void addToProductMapTest(){
+    public void shouldNotRiseNullPointerException_whenTryToAddProduct_addToProductMapTest(){
         assertThat(basketService.productMap).hasSize(0);
-        basketService.addToProductMap(p1);
+        Assertions.assertThatCode(() -> basketService.addToProductMap(p1))
+                .doesNotThrowAnyException();
         assertThat(basketService.productMap).hasSize(1);
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void shouldRiseNullPointerException_whenTryToAddNullProduct_addToProductMapTest(){
+        assertThat(basketService.productMap).hasSize(0);
+        basketService.addToProductMap(null);
     }
 
     @Test
