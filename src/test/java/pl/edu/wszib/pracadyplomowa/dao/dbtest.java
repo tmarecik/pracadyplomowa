@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import pl.edu.wszib.pracadyplomowa.model.Product;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -19,9 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class dbtest {
 
-    public final byte[] picture = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
-    public final byte[] icon = Files.readAllBytes(Paths.get("C:\\Users\\Tomek\\JAVA\\pracadyplomowa\\src\\test\\java\\pl\\edu\\wszib\\pracadyplomowa\\under_construction.png"));
-    public static final int COUNTER = 2;
+    static byte [] picture = new byte[]{0x00, 0x01};
+    static byte [] icon = new byte[]{0x00, 0x01};
 
     @Autowired
     ProductDao productDao;
