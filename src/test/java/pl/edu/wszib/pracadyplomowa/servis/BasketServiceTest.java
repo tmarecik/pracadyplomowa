@@ -1,5 +1,6 @@
 package pl.edu.wszib.pracadyplomowa.servis;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,7 +21,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 
 @ExtendWith(MockitoExtension.class)
-//@SpringBootTest
 public class BasketServiceTest {
 
     static private byte [] byteArray = new byte[]{0x00, 0x01};
@@ -196,9 +196,24 @@ public class BasketServiceTest {
         String specifiedValue  = "there is not enought items in shop store";
         String actualValue = outContent.toString();
         assertThat(actualValue, containsString(specifiedValue));
-        
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldRiseIllegalArgumentException_ifTotalItemsInBasketIsZero_buyAllStuffTest() throws Exception{
+        assertThat(basketService.basketMap).hasSize(0);
+        basketService.buyAllStuff();
+    }
+
+    @Test
+    public void shouldNotRiseIllegalArgumentException_ifTotalItemsInBasketIsNONZero_buyAllStuffTest() throws Exception{
+        assertThat(basketService.basketMap).hasSize(0);
+        basketService.basketMap.put(bp1.getId(), bp1);
+        assertThat(basketService.basketMap).hasSize(1);
+
+        basketService.buyAllStuff();
+        Assertions.assertThatCode(() -> basketService.buyAllStuff())
+                .doesNotThrowAnyException();
+    }
 
 }
 

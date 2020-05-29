@@ -91,11 +91,18 @@ public class BasketService {
     }
 
     public void buyAllStuff(){
-        Set<Map.Entry<Long, Product>> productSet = productMap.entrySet();
-        for(Map.Entry<Long, Product> product: productSet){
-            databaseAvailabilityUpdate(product.getValue());
+        int basketTotalItems = basketTotalItems();
+
+            if (basketTotalItems > 0) {
+                Set<Map.Entry<Long, Product>> productSet = productMap.entrySet();
+                for (Map.Entry<Long, Product> product : productSet) {
+                    databaseAvailabilityUpdate(product.getValue());
+                }
+            }
+            else {
+                throw new IllegalArgumentException(Integer.toString(basketTotalItems));
+            }
         }
     }
 
 
-}

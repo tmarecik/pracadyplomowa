@@ -54,7 +54,14 @@
                     <a th:href="@{/basket/deleteAll}"><input class="uk-button uk-label-warning" value="Wyczyść koszyk" type="button"></inut></a>
                 </td>
                 <td>
-                    <a th:href="@{/basket/buy}"><input class="uk-button uk-width-1-1 uk-label-danger" value="Kup" type="button"></inut></a>
+                    <div th:if="${basketTotalItems}>0">
+                        <a th:href="@{/basket/buy}"><input class="uk-button uk-width-1-1 uk-label-danger" value="Kup" type="button"></inut></a>
+                    </div>
+                    <div th:unless="${basketTotalItems}">
+                        <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                            <p> Twój koszyk jest pusty </p>
+                        </div>
+                    </div>
                 </td>
             </tr>
         </tbody>
