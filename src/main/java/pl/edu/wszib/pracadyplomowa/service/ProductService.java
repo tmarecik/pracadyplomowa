@@ -72,33 +72,33 @@ public class ProductService {
 //        String desc_yamaha_pacyfica112 = new String();
 //
 //        try {
-//            picture_samic = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\samic\\IC1\\SGE_SAM_IC1BK_211335_3.jpg"));
-//            icon_samic = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\samic\\IC1\\samic_icon.jpg"));
-//            desc_samic = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\samic\\IC1\\SGE_SAM_IC1BK_211335_3.html")));
+//            picture_samic = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\samic\\IC1\\SGE_SAM_IC1BK_211335_3.jpg"));
+//            icon_samic = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\samic\\IC1\\samic_icon.jpg"));
+//            desc_samic = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\samic\\IC1\\SGE_SAM_IC1BK_211335_3.html")));
 //
-//            picture_ltd_ec_1000 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_ec1000\\ltd-ec-1000-vbd.jpg"));
-//            icon_ltd_ec_1000 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_ec1000\\ltd_ec_1000_icon.jpg"));
-//            desc_ltd_ec_1000 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_ec1000\\ltd-ec-1000-vbd.html")));
+//            picture_ltd_ec_1000 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_ec1000\\ltd-ec-1000-vbd.jpg"));
+//            icon_ltd_ec_1000 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_ec1000\\ltd_ec_1000_icon.jpg"));
+//            desc_ltd_ec_1000 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_ec1000\\ltd-ec-1000-vbd.html")));
 //
-//            picture_RL3 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\RL3\\RL3.jpg"));
-//            icon_RL3 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\RL3\\royale_RL3_icon.jpg"));
-//            desc_RL3 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\RL3\\RL3_opis.html")));
+//            picture_RL3 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\RL3\\RL3.jpg"));
+//            icon_RL3 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\RL3\\royale_RL3_icon.jpg"));
+//            desc_RL3 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\RL3\\RL3_opis.html")));
 //
-//            picture_epiphone_LP = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\epiphone_LP\\Les_Paul_Studio_LT.jpg"));
-//            icon_epiphone_LP = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\epiphone_LP\\Les_Paul_Studio_LT_icon.jpg"));
-//            desc_epiphone_LP = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\epiphone_LP\\Les_Paul_Studio_LT.html")));
+//            picture_epiphone_LP = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\epiphone_LP\\Les_Paul_Studio_LT.jpg"));
+//            icon_epiphone_LP = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\epiphone_LP\\Les_Paul_Studio_LT_icon.jpg"));
+//            desc_epiphone_LP = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\epiphone_LP\\Les_Paul_Studio_LT.html")));
 //
-//            picture_gibson_LPS = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst-10109188.jpg"));
-//            icon_gibson_LPS = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst_icon.jpg"));
-//            desc_gibson_LPS = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst-10109188.html")));
+//            picture_gibson_LPS = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst-10109188.jpg"));
+//            icon_gibson_LPS = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst_icon.jpg"));
+//            desc_gibson_LPS = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\gibson_LPS_cherry\\gibson-les-paul-standard-heritage-cherry-sunburst-10109188.html")));
 //
-//            picture_LTD_snakebyte = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_snakebyte\\ltdj.jpg"));
-//            icon_LTD_snakebyte = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_snakebyte\\ltd_iconj.jpg"));
-//            desc_LTD_snakebyte = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\ltd_snakebyte\\ltd.html")));
+//            picture_LTD_snakebyte = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_snakebyte\\ltdj.jpg"));
+//            icon_LTD_snakebyte = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_snakebyte\\ltd_iconj.jpg"));
+//            desc_LTD_snakebyte = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\ltd_snakebyte\\ltd.html")));
 //
-//            picture_yamaha_pacyfica112 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\yamaha_pacyfica\\i-yamaha-pacifica-112v-ovs.jpg"));
-//            icon_yamaha_pacyfica112 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\yamaha_pacyfica\\yamacha_pac_112_icon.jpg"));
-//            desc_yamaha_pacyfica112 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\database_data\\yamaha_pacyfica\\yamaha_pacyfica_112.html")));
+//            picture_yamaha_pacyfica112 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\yamaha_pacyfica\\i-yamaha-pacifica-112v-ovs.jpg"));
+//            icon_yamaha_pacyfica112 = Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\yamaha_pacyfica\\yamacha_pac_112_icon.jpg"));
+//            desc_yamaha_pacyfica112 = new String(Files.readAllBytes(Paths.get(".\\src\\main\\resources\\static\\img\\database_data\\yamaha_pacyfica\\yamaha_pacyfica_112.html")));
 //
 //
 //        } catch (IOException e) {
