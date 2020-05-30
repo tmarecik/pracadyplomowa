@@ -147,12 +147,18 @@
 
         <resources>
             <resource>
-                <directory>resources</directory>
-                <targetPath>${db.properties}</targetPath>
+
+                <directory>\src\main\resources</directory>
+<!--                <directory>resources</directory>-->
+<!--                <targetPath>${db.properties}</targetPath>-->
                 <includes>
-                    <include>application.properties</include>
+                    <include>**/*</include>
                 </includes>
+<!--                <includes>-->
+<!--                    <include>application.properties</include>-->
+<!--                </includes>-->
             </resource>
+
         </resources>
 
     </build>
