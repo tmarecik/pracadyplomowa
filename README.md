@@ -1,5 +1,7 @@
 # pracadyplomowa: wersja do weryfikacji/oceny:
 
+po uruchomieniu aplikacji startowy url: http://localhost:8080/
+
 Witryna sklepu muzycznego:
 Strona powitalna -> grafika w tle, nazwa sklepu, przycisk wejdź,
 Po wejściu do sklepu: layout 3 przyciski, domek -> link do strony powitalnej, oferta -> lista z produktami, koszyk
